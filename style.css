@@ -1,0 +1,169 @@
+@font-face {
+    font-family: "RedditSans";
+    src: url("./RedditSans-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    font-family: "RedditSans", sans-serif;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    position: absolute;
+    max-width: 100dvw;
+    max-height: 100dvh;
+    aspect-ratio: 2048 / 1536;
+    background: pink;
+}
+
+#container {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 2048px;
+    height: 1536px;
+
+    transform-origin: 0 0;
+    transform: scale(0.25);
+}
+
+.background-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+form {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 843.538px;
+    height: 674.857px;
+
+    transform-origin: 0 0;
+
+    transform: matrix3d(1.659777225247, 0.222749813799, 0, 0.000548518813,
+            0.248921919918, 1.447148797894, 0, 0.000299497608,
+            0, 0, 1, 0,
+            165, 169, 0, 1);
+}
+
+/*form::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("cardboard.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 2000;
+    /*mix-blend-mode: screen;* /
+}*/
+
+
+input {
+    position: absolute;
+    display: inline-block;
+    border-radius: 50% / 0;
+    font-size: 50px;
+    height: 74px;
+    color: black;
+    background: #F0ECE8;
+    background: white url('paper_texture.webp') center;
+    border: none;
+    font-family: "RedditSans", sans-serif;
+    font-weight: 700;
+    padding: 0 20px;
+    border-radius: 37px;
+    outline: none;
+    min-width: 5ch;
+    max-width: 30ch;
+    width: auto;
+    transition: width 0.2s ease;
+    text-align: center;
+}
+
+input:focus {
+    outline: 6px solid black;
+    z-index: 1;
+}
+
+input[name="line1"] {
+    top: 96px;
+    left: 70px;
+}
+
+input[name="line2"] {
+    top: 163px;
+    left: 180px;
+}
+
+input[name="line3"] {
+    top: 230px;
+    left: 110px;
+}
+
+.line4-wrapper {
+    position: absolute;
+    top: 297px;
+    left: 240px;
+}
+
+.line4-wrapper input {
+    position: relative;
+}
+
+.chat-tip {
+    position: absolute;
+    bottom: 0px;
+    left: -8px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid #F0ECE8;
+    z-index: -1;
+}
+
+/* Subreddit input styling */
+.subreddit-input {
+    background: #2d2928;
+    color: #ffffff;
+    font-size: 28px;
+    height: 44px;
+    top: 473px;
+    left: 408px;
+    text-align: left;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+    padding-left: 0;
+    padding-bottom: 6px;
+
+}
+
+.subreddit-input::placeholder {
+    color: #ffffff;
+    opacity: 1;
+}
+
+.subreddit-input:focus {
+    outline: 6px solid white;
+}
