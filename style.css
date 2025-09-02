@@ -25,7 +25,6 @@ main {
     max-width: 100dvw;
     max-height: 100dvh;
     aspect-ratio: 2048 / 1536;
-    background: pink;
 }
 
 #container {
@@ -166,4 +165,12 @@ input[name="line3"] {
 
 .subreddit-input:focus {
     outline: 6px solid white;
+}
+
+#camera-icon {
+    color: white;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    cursor: pointer;
 }

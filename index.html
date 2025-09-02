@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Générateurs de Propagande Reddit</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Générateur de Propagande Reddit</title>
+  <link rel="stylesheet" href="style.css?version=2">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -13,19 +14,29 @@
     <img src="background.webp" alt="Background" class="background-image">
     <div id="container">
       <form>
-        <input type="text" name="line1" placeholder="L'objectif premier" maxlength="25" />
-        <input type="text" name="line2" placeholder="de Reddit" maxlength="25" />
-        <input type="text" name="line3" placeholder="est de faire" maxlength="25" />
+        <input type="text" name="line1" placeholder="L'objectif premier" maxlength="28" />
+        <input type="text" name="line2" placeholder="de Reddit" maxlength="28" />
+        <input type="text" name="line3" placeholder="est de faire" maxlength="28" />
         <div class="input-wrapper line4-wrapper">
-          <input type="text" name="line4" placeholder="de l'argent." maxlength="25" />
+          <input type="text" name="line4" placeholder="de l'argent." maxlength="28" />
           <span class="chat-tip"></span>
         </div>
-        <input type="text" name="subreddit" class="subreddit-input" value="r/france" placeholder="r/france" maxlength="25" />
+        <input type="text" name="subreddit" class="subreddit-input" value="r/france" placeholder="r/france"
+          maxlength="23" />
       </form>
     </div>
   </main>
 
-  <script src="script.js"></script>
+
+  <script src="script.js?version=2"></script>
+  <script src="js_deps/dom-to-image-more.min.js"></script>
+  <script src="js_deps/FileSaver.min.js"></script>
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="camera-icon" style="display: none;">
+    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+    <circle cx="12" cy="13" r="4"></circle>
+  </svg>
 </body>
 
 </html>
