@@ -19,8 +19,8 @@
   const SUB_RIGHT_MARGIN = 0;
 
   // Overlap control: ensure pairs touch by at least this ratio
-  const TOUCH_RATIO = 0.33; // 33%
-  const MIN_OVERLAP_PX = 12; // also enforce a tiny absolute overlap
+  const TOUCH_RATIO = 0.50; // 50%
+  const MIN_OVERLAP_PX = 30; // also enforce a tiny absolute overlap
 
   // Horizontal bias to make 1 & 3 lean left, 2 & 4 lean right (softened)
   const PAIR1_CENTER_SHIFT = -40; // (line1, line2)
