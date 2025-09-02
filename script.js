@@ -132,6 +132,12 @@
 
   // Fallback: Check if bubble 2 and 3 are touching, if not, center them
   function checkAndFixBubblesTouching() {
+    // Only need to check in bubble-3 or bubble-4 mode
+    const form = document.querySelector('form');
+    if (!form || (!form.classList.contains('bubbles-3') && !form.classList.contains('bubbles-4'))) {
+      return;
+    }
+    
     const line2 = document.querySelector('input[name="line2"]');
     const line3 = document.querySelector('input[name="line3"]');
     const line2Wrapper = document.querySelector('.line2-wrapper');
