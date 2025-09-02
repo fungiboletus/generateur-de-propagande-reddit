@@ -60,22 +60,6 @@ form {
             165, 169, 0, 1);
 }
 
-/*form::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("cardboard.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 2000;
-    /*mix-blend-mode: screen;* /
-}*/
-
 
 input {
     position: absolute;
@@ -104,17 +88,20 @@ input:focus {
     z-index: 1;
 }
 
-input[name="line1"] {
+.line1-wrapper {
+    position: absolute;
     top: 96px;
     left: 70px;
 }
 
-input[name="line2"] {
+.line2-wrapper {
+    position: absolute;
     top: 163px;
     left: 180px;
 }
 
-input[name="line3"] {
+.line3-wrapper {
+    position: absolute;
     top: 230px;
     left: 110px;
 }
@@ -125,6 +112,10 @@ input[name="line3"] {
     left: 240px;
 }
 
+/* All line wrapper inputs have the same relative positioning */
+.line1-wrapper input,
+.line2-wrapper input,
+.line3-wrapper input,
 .line4-wrapper input {
     position: relative;
 }
@@ -167,10 +158,118 @@ input[name="line3"] {
     outline: 6px solid white;
 }
 
-#camera-icon {
-    color: white;
+/* Controls container */
+.controls {
     position: absolute;
     bottom: 1rem;
     right: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Bubble control button */
+#bubble-control {
+    background: none;
+    border: none;
+    color: white;
     cursor: pointer;
+    padding: 0;
+    position: relative;
+    top: 4px;
+}
+
+#bubble-control:hover {
+    opacity: 0.8;
+}
+
+/* Bubble count badge */
+.bubble-badge {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    color: white;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    font-family: "RedditSans", sans-serif;
+}
+
+#camera-icon {
+    color: white;
+    cursor: pointer;
+}
+
+#camera-icon:hover {
+    opacity: 0.8;
+}
+
+/* Bubble count visibility classes (show first N lines top-to-bottom) */
+/* 1 bubble: show line1 only */
+.bubbles-1 .line2-wrapper,
+.bubbles-1 .line3-wrapper,
+.bubbles-1 .line4-wrapper {
+    display: none;
+}
+
+/* 2 bubbles: show line1, line2 */
+.bubbles-2 .line3-wrapper,
+.bubbles-2 .line4-wrapper {
+    display: none;
+}
+
+/* 3 bubbles: show line1, line2, line3 */
+.bubbles-3 .line4-wrapper {
+    display: none;
+}
+
+/* Repositioning for different bubble counts */
+/* Total vertical space: from 96px to 297px = 201px range */
+
+/* 1 bubble (line1): center vertically within available space */
+.bubbles-1 .line1-wrapper {
+    top: 196px;
+}
+
+/* 2 bubbles (line1 & line2): maintain 67px gap */
+.bubbles-2 .line1-wrapper {
+    top: 146px;
+}
+
+.bubbles-2 .line2-wrapper {
+    top: 213px;
+}
+
+/* 3 bubbles (line1, line2, line3): centered with 67px gap */
+.bubbles-3 .line1-wrapper {
+    top: 130px;
+}
+
+.bubbles-3 .line2-wrapper {
+    top: 197px;
+}
+
+.bubbles-3 .line3-wrapper {
+    top: 264px;
+}
+
+/* Hide chat tips for non-last bubbles */
+/* In 2-bubble mode: hide tip of line1 */
+.bubbles-2 .line1-wrapper .chat-tip {
+    display: none;
+}
+
+/* In 3-bubble mode: hide tips of line1 and line2 */
+.bubbles-3 .line1-wrapper .chat-tip,
+.bubbles-3 .line2-wrapper .chat-tip {
+    display: none;
+}
+
+/* In 4-bubble mode: hide tips of line1, line2, and line3 */
+.bubbles-4 .line1-wrapper .chat-tip,
+.bubbles-4 .line2-wrapper .chat-tip,
+.bubbles-4 .line3-wrapper .chat-tip {
+    display: none;
 }
