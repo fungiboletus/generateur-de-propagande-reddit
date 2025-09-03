@@ -388,6 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Bubble control functionality
 document.addEventListener('DOMContentLoaded', () => {
+
   const bubbleButton = document.getElementById('bubble-control');
   const bubbleBadge = document.querySelector('.bubble-badge');
   const form = document.querySelector('form');
@@ -438,7 +439,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Click handler
-  bubbleButton.addEventListener('click', () => {
+  bubbleButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
     // Cycle through: 4 → 3 → 2 → 1 → 4
     bubbleCount = bubbleCount === 1 ? 4 : bubbleCount - 1;
 

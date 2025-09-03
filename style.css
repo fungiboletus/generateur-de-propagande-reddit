@@ -166,6 +166,7 @@ input:focus {
     display: flex;
     gap: 1rem;
     align-items: center;
+    touch-action: manipulation;
 }
 
 /* Bubble control button */
