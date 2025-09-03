@@ -362,7 +362,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!cameraIcon) {
     return;
   }
-  const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+  const isSafari = navigator.vendor === 'Apple Computer, Inc.' &&
+    /safari/i.test(navigator.userAgent) &&
+    !/chrome|chromium|crios|edg|edgios|opr|opt|brave/i.test(navigator.userAgent);
+
   if (isSafari) {
     // Safari has issues with dom-to-image and blobs, so hide the icon
     return;
@@ -379,6 +383,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     domtoimage.toBlob(main, {
       scale: scale,
+      width: main.offsetWidth,
+      height: main.offsetHeight
     }).then(function (blob) {
       window.saveAs(blob, 'reddit-propaganda.png');
     });
