@@ -81,6 +81,8 @@
   measureSpan.style.position = 'absolute';
   measureSpan.style.visibility = 'hidden';
   measureSpan.style.whiteSpace = 'pre';
+  measureSpan.style.left = '-9999px';
+  measureSpan.style.top = '-9999px';
   // Other font properties will be copied from each input via getComputedStyle
   document.body.appendChild(measureSpan);
 
@@ -89,6 +91,8 @@
   measureSpanSubreddit.style.position = 'absolute';
   measureSpanSubreddit.style.visibility = 'hidden';
   measureSpanSubreddit.style.whiteSpace = 'pre';
+  measureSpanSubreddit.style.left = '-9999px';
+  measureSpanSubreddit.style.top = '-9999px';
   // Other font properties will be copied from subreddit input via getComputedStyle
   document.body.appendChild(measureSpanSubreddit);
 
@@ -137,26 +141,26 @@
     if (!form || (!form.classList.contains('bubbles-3') && !form.classList.contains('bubbles-4'))) {
       return;
     }
-    
+
     const line2 = document.querySelector('input[name="line2"]');
     const line3 = document.querySelector('input[name="line3"]');
     const line2Wrapper = document.querySelector('.line2-wrapper');
     const line3Wrapper = document.querySelector('.line3-wrapper');
-    
+
     if (!line2 || !line3) return;
-    
+
     function isVisible(el) {
       if (!el) return false;
       const cs = window.getComputedStyle(el);
       return cs && cs.display !== 'none' && cs.visibility !== 'hidden';
     }
-    
+
     if (!isVisible(line2) || !isVisible(line3)) return;
 
     // Nuclear option: use getBoundingClientRect for absolute positions
     const rect2 = line2.getBoundingClientRect();
     const rect3 = line3.getBoundingClientRect();
-    
+
     // Check for horizontal overlap (they're on different rows)
     const noOverlap = (rect3.left > rect2.right) || (rect3.right < rect2.left);
 
